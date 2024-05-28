@@ -1,0 +1,9 @@
+// 빌드 시 bootJar로 생성하지않음
+bootJar { enabled = false }
+// 다른 모듈의 라이브러리 형태가 될 것이기 때문에 jar 형태로 진행
+jar { enabled = true }
+
+dependencies {
+    // common 모듈에 의존
+    implementation project(":module-common")
+}

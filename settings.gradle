@@ -1,1 +1,5 @@
 rootProject.name = 'portfolio_was'
+include 'module-common'
+include 'module-normal-board'
+include 'module-main'
+
