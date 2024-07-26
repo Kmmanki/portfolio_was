@@ -1,6 +1,10 @@
 
 dependencies {
-    // 이미 board에 포함된 의존성임으로 추가하지 않음
-//    implementation project(":module-common")
+
+    implementation project(":module-common")
     implementation project(":module-normal-board")
+
+    // logback을 사용하여 logstash로 전달하기 위하여 필요한 의존성
+    implementation 'net.logstash.logback:logstash-logback-encoder:7.4'
+    implementation group: 'ch.qos.logback', name: 'logback-core', version: '1.5.6'
 }

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<configuration>
+
+<!-- 콘솔에 로그를 출력하는 콘솔 앱렌더 설정 -->
+<appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+    <!-- 로그 출력을 위한 레이아웃 설정 -->
+    <layout class="ch.qos.logback.classic.PatternLayout">
+        <pattern>%d{yyyy-MM-dd HH:mm:ss} %-5level %logger{36} - %msg%n</pattern>
+    </layout>
+</appender>
+
+<!-- 파일에 로그를 저장하는 파일 앱렌더 설정 -->
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>logs/app.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!-- 일별로 로그 파일 롤링 -->
+            <fileNamePattern>logs/app.%d{yyyy-MM-dd}.log</fileNamePattern>
+            <!-- 보관할 로그 파일의 최대 개수 -->
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} %-5level %logger{36} - %msg%n</pattern>
+        </layout>
+    </appender>
+
+
+<!--    <appender name="LOGSTASH" class="net.logstash.logback.appender.LogstashTcpSocketAppender">-->
+<!--        <destination>127.0.0.1:5000</destination>-->
+<!--        <encoder class="net.logstash.logback.encoder.LogstashEncoder"/>-->
+<!--        <layout class="net.logstash.logback.layout.LogstashLayout">-->
+<!--            <timestampPattern>yyyy-MM-dd' 'HH:mm:ss.SSS</timestampPattern>-->
+<!--        </layout>-->
+<!--    </appender>-->
+<!--    <logger name="LOGSTASH">-->
+<!--        <appender-ref ref="LOGSTASH"/>-->
+<!--    </logger>-->
+
+<!-- 루트 로거 설정 -->
+<root level="INFO">
+    <appender-ref ref="CONSOLE" />
+<!--    <appender-ref ref="FILE" />-->
+</root>
+
+
+
+</configuration>
