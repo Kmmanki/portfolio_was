@@ -6,11 +6,11 @@ import lombok.Getter;
 import lombok.Setter;
 
 /*
+    * API 요청 결과를 담는 DTO
+    * date: 2024-07-26
+    * author: 김만기
     ====== Annotation description ======
     Schema: swagger 문서 작성을 위한 annotation
-    ======= description =======
-    API 요청 결과를 담는 DTO
-
  */
 @Getter
 @Setter
