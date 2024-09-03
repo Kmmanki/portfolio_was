@@ -2,7 +2,11 @@ bootJar { enabled = false }
 jar { enabled = true }
 
 dependencies {
-    // jpa를 사용하기위한 의존성 추가
+   /*
+   * jpa: DB ORM
+   * validation: Controller 등, validation Check
+   * */
     implementation group: 'org.mariadb.jdbc', name: 'mariadb-java-client', version: '3.4.0'
     implementation group: 'org.springframework.boot', name: 'spring-boot-starter-data-jpa', version: '3.3.0'
+    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-validation', version: '2.5.2'
 }

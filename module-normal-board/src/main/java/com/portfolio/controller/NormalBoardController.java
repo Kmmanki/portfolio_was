@@ -6,8 +6,10 @@ import com.portfolio.entity.NormalBoard;
 import com.portfolio.service.NormalBoardService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,6 +30,7 @@ import java.time.LocalDateTime;
 @RequestMapping("/api/normal-board")
 @RequiredArgsConstructor
 @Tag(name = "NormalBoard", description = "일반 게시판 관련 API")
+
 public class NormalBoardController {
 
     private final NormalBoardService normalBoardService;
@@ -35,7 +38,7 @@ public class NormalBoardController {
     @PostMapping("/insert")
     @Operation(summary = "게시물 등록")
     public ResponseEntity<ApiResultDto<NormalBoard>> insertNormalBoard(
-            @RequestBody CreateNormalBoardDto board
+       @RequestBody @Validated CreateNormalBoardDto board
     ) {
         ApiResultDto<NormalBoard> result = new ApiResultDto<>();
         try {
